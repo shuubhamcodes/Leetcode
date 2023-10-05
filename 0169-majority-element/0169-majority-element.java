@@ -26,20 +26,39 @@
 
 class Solution {
     public int majorityElement(int[] nums) {
-        int n = nums.length;
-        Map<Integer, Integer> map = new HashMap<>();
+//         int n = nums.length;
+//         Map<Integer, Integer> map = new HashMap<>();
         
-        for (int i = 0; i < n; i++) {
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-        }
+//         for (int i = 0; i < n; i++) {
+//             map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+//         }
         
-        n = n / 2;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (entry.getValue() > n) {
-                return entry.getKey();
+//         n = n / 2;
+//         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+//             if (entry.getValue() > n) {
+//                 return entry.getKey();
+//             }
+//         }
+        
+//         return 0;
+        
+        int count = 0;
+        int majorityelement = nums[0];
+        
+        for(int i = 0;i<nums.length;i++){
+            if(count==0){
+                majorityelement = nums[i];
+                count++;
+            }else{
+                if(majorityelement==nums[i]){
+                    count++;
+                }else{
+                    count--;
+                }
             }
         }
         
-        return 0;
+        
+        return majorityelement;
     }
 }
